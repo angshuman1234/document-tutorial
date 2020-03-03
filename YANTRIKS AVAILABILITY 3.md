@@ -3,7 +3,7 @@
 <br>
 <br>
 
-![baskett](https://raw.githubusercontent.com/angshuman1234/document-tutorial/master/ecommerce.png?token=AOW5ZR5OAVUYDYMBOO62MUS6LY2GE)
+![baskett](https://raw.githubusercontent.com/angshuman1234/document-tutorial/master/ecommerce.png)
 
 
 # Introduction
@@ -24,7 +24,7 @@ These challenges are significant enough to impact the bottom line for businesses
 As discussed earlier, the rapid adoption of multi channels has led to significant increase in inventory and order related transactions that current system has to deal with. Also the system needs to become open to exchange information from marketplaces. <br>
 This requires that the system needs to handle “internet scale” of transaction as well as become flexible to integrate with external systems.  As enterprise systems scramble to optimize application design solutions to the scale of operations, they are inhibited by the fundamental architecture that was built for a different era.  Let's take an example of an existing Retail echo system:
 
-![](https://raw.githubusercontent.com/angshuman1234/document-tutorial/master/flowchart.jpg?token=AOW5ZR2A4RNWIFGECGZIOWC6LY2LI)<br>
+![](https://raw.githubusercontent.com/angshuman1234/document-tutorial/master/flowchart.jpg)<br>
 
 Enterprise systems usually get an inventory feed from POS / WMS. The inventory feed is assimilated into the enterprise inventory system, which may be stand-alone or part of the enterprise Order Management system. Such inventory systems would then typically provide a periodic feed of availability of inventory data to order capture system across channels.The feed may be continuous or threshold based or periodic. The feed is typically assimilated by the channels.The replica / cache of inventory feed thus maintained by the website is thus used by the actual website during browsing and shopping for the purposes of inventory check. Often, if inventory levels are low, the website may have special intelligence to make real-time calls to backend inventory systems to avoid oversells. <br>
 
@@ -43,7 +43,7 @@ Yantriks Availability is  a comprehensive high ROI state of the art solution. Th
 
 YIA REST APIs are served out of a Spring Boot application, hooked up to an in-memory grid computing technology, backed by Cassandra, acting as the big data persistence layer.
 
-&emsp;&emsp;&ensp; ![](https://raw.githubusercontent.com/angshuman1234/document-tutorial/master/diagram.png?token=AOW5ZR3SR2BYEEF5EPO7WYC6LY2OK)
+&emsp;&emsp;&ensp; ![](https://raw.githubusercontent.com/angshuman1234/document-tutorial/master/diagram.png)
 
 YA delivers following Technological benefits to businesses:<br>
 - Distributed architecture provides higher degree of availability
@@ -60,12 +60,12 @@ Once fully implemented, Yantriks would become the centralized inventory system, 
 It is envisaged that Yantriks Availability  will be utilized for inventory instead of the OMS and all inventory operations will be done directory on YA . There can be phased approaches for implementation where only for a specific types of order, Yantriks Availability is utilized and gradually it can be implemented for all types of orders. <br>
 To illustrate the above statement, let us study the flow for two different scenarios. First scenario is Buy Online Pickup At Store. In this scenario, customers will pick up the Order from the chosen Store, hence inventory check and reservation has to be done at Store level. Customer will be shown nearby stores where inventory is available, once he/she chooses the store and adds item to Cart, a temporary reservation has to be done to ensure inventory is reserved till the shopping is completed. Once Customer confirms the order, the reservation is confirmed.
 
-&emsp;&emsp;&ensp; ![](https://raw.githubusercontent.com/angshuman1234/document-tutorial/master/flowchart1.png?token=AOW5ZR2OHXXH3L2BSYBLV4K6LY2XY)
+&emsp;&emsp;&ensp; ![](https://raw.githubusercontent.com/angshuman1234/document-tutorial/master/flowchart1.png)
 
 In the second scenario, the customer places the order and wants to get it shipped. Here  the temporary reservation is done without the Store information as it is unknown at this point from where the order will be shipped. Once the order is confirmed, order will get scheduled by Order Management system and Store / DC location will be determined. OMS will then modify the temporary reservation to confirm.<br>
 As you can see from the above scenarios, OM and Yantriks Availability will serve different purposes. While OM will be the Order repository, Yantriks Availability will be the main system for Inventory records and  soft as well as hard allocation of it against orders. The two scenarios depicts how Yantriks availability will interact with Web Channel and OM system based on when Inventory information is required and when inventory allocation is to be made.<br>
 It is important to note that Yantriks Availability will need some master data like Locations, Items, Business rules etc. Typically this is provided as interfaces from OMS system. There will also be ongoing feed for Supply from external system as and when new inventory is received across the Stores / Warehouses.
-![](https://raw.githubusercontent.com/angshuman1234/document-tutorial/master/flowchart2.png?token=AOW5ZR6MB3ZRZVC5HNAQGOC6LY22M)
+![](https://raw.githubusercontent.com/angshuman1234/document-tutorial/master/flowchart2.png)
 
 ## Architecture
 Yantriks  Availability architecture is enabled using following components<br>
@@ -76,7 +76,7 @@ Yantriks  Availability architecture is enabled using following components<br>
 
  A Pictorial depiction of the entire setup will be as below:
 
-&emsp;&emsp;&ensp; ![ ](https://raw.githubusercontent.com/angshuman1234/document-tutorial/master/diagram1.png?token=AOW5ZR6NH2XKPRGHAD4YNNS6LY24K)
+&emsp;&emsp;&ensp; ![ ](https://raw.githubusercontent.com/angshuman1234/document-tutorial/master/diagram1.png)
 
 Conceptually Data is first written to in-memory database i.e. Hazelcast. Later the data from moved from Hazelcast to Cassandra for persistence. Similarly Data is first retrieved from in-memory database and if not found then it is looked up in persistence layer i.e. Cassandra.
 
@@ -141,7 +141,7 @@ To achieve this, Yantriks Availability takes the confirm shipment update from Ya
 There are multiple applications that will be deployed in a typical implementation as Yantriks being a distributed architecture Product comprising of various microservices.<br>
 Here is a block diagram depicting various microservices and how an external system like OMS will interact with each for various data elements.<br>
 
-![](https://raw.githubusercontent.com/angshuman1234/document-tutorial/master/flowchart3.png?token=AOW5ZR7D266HIMA3AM3ZKM26LY3CG)
+![](https://raw.githubusercontent.com/angshuman1234/document-tutorial/master/flowchart3.png)
 
 ### Publish ATP
 ATP will be published whenever there is a change. ATP published data can be used by external systems like WEB / Marketplaces etc.<br>
